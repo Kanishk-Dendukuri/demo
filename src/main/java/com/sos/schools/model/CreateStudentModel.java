@@ -1,10 +1,11 @@
 package com.sos.schools.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
 @Data
 @AllArgsConstructor
