@@ -39,7 +39,7 @@ public class StudentResource {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Student> updateStudent(@RequestBody @Valid UpdateStudentModel updateStudentModel){
+    public ResponseEntity<Student> updateStudent(@Valid @RequestBody UpdateStudentModel updateStudentModel){
         logger.info("INFO Updating Student");
         return new ResponseEntity<>(studentService.updateStudent(updateStudentModel),HttpStatus.OK);
     }

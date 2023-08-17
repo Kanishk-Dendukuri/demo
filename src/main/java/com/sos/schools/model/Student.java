@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 @Table(name = "Students")
 public class Student {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Min(value = 0, message = "Id Can Not Be Less Than 0")
     private int id;
 
@@ -39,5 +39,11 @@ public class Student {
     @NotNull(message = "Email Can Not Be Empty")
     @Email(message = "Email Should Be Valid")
     private String email;
+
+    public Student(String firstName, String lastName,String Email){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = Email;
+    }
 
 }

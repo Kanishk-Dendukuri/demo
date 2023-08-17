@@ -10,18 +10,17 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CreateStudentModel {
-
-    private int id;
-
     @NotEmpty(message = "first name can not be empty or null")
-    @NotNull(message = "nice ")
+    @NotNull(message = "first name can not be empty or null")
     private String firstName;
 
 
     @NotEmpty(message = "last name can not be empty or null")
-    @NotNull(message = "nice ")
+    @NotNull(message = "last name can not be empty or null")
     private String lastName;
 
     @Email(message = "has to be valid email")
+    @NotEmpty(message = "Email can not be empty or null")
+    @NotNull(message = "Email can not be empty or null")
     private String email;
 }

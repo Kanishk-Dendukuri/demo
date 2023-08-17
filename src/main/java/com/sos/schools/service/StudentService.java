@@ -8,6 +8,7 @@ import com.sos.schools.exception.StudentNotFoundException;
 import com.sos.schools.model.Student;
 import com.sos.schools.model.CreateStudentModel;
 import com.sos.schools.model.UpdateStudentModel;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ public class StudentService {
 //        studentList.add(student);
 //        studentIdCount++;
 //        return student;
-        Student student = new Student (createStudentModel.getId(), createStudentModel.getFirstName(),
+        Student student = new Student (createStudentModel.getFirstName(),
                             createStudentModel.getLastName(), createStudentModel.getEmail());
 
 
@@ -90,7 +91,7 @@ public class StudentService {
 //                .orElseThrow(() -> new IllegalArgumentException("No student found with this id"));
 //    }
 
-    public Student updateStudent(UpdateStudentModel updateStudentModel){
+    public Student updateStudent(@Valid UpdateStudentModel updateStudentModel){
         Student student = repository.findById(updateStudentModel.getId()).orElseThrow(() -> new StudentNotFoundException("Student id not found - " + updateStudentModel.getId()));
         student.setFirstName(updateStudentModel.getFirstName());
         student.setLastName(updateStudentModel.getLastName());
